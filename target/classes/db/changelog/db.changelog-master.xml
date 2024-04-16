@@ -42,6 +42,46 @@
         <addAutoIncrement tableName="user-table" columnName="id" columnDataType="bigint" startWith="100"
                           incrementBy="1"/>
     </changeSet>
+    <changeSet id="202404-15-recipe-table" author="umut">
+        <createTable tableName="recipe-table">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true"  primaryKeyName="recipe_id_pk" />
+            </column>
+            <column name="name" type="VARCHAR(250)">
+            </column>
+            <column name="preparation_time" type="BIGINT">
+            </column>
+            <column name="base64image" type="text">
+            </column>
+            <column name="explanation" type="text">
+            </column>
+            <column name="materials" type="text[]">
+            </column>
+            <column name="category_id" type="BIGINT">
+            </column>
+            <column name="user_id" type="BIGINT">
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="recipe-table"
+                                 constraintName="recipe_user_fk"
+                                 referencedColumnNames="id"
+                                 referencedTableName="user-table"/>
+        <addForeignKeyConstraint baseColumnNames="category_id"
+                                 baseTableName="recipe-table"
+                                 constraintName="recipe_category_fk"
+                                 referencedColumnNames="id"
+                                 referencedTableName="category-table"/>
+    </changeSet>
+    <changeSet id="20240415-category-table" author="umut">
+        <createTable tableName="category-table">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true"  primaryKeyName="category_id_pk" />
+            </column>
+            <column name="name" type="VARCHAR(250)">
+            </column>
+        </createTable>
+    </changeSet>
     <changeSet id="20240413-role-insert" author="murat">
         <insert tableName="role-table">
             <column name="id" value="1" />
