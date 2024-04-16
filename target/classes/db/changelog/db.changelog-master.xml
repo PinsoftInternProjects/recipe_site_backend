@@ -42,6 +42,15 @@
         <addAutoIncrement tableName="user-table" columnName="id" columnDataType="bigint" startWith="100"
                           incrementBy="1"/>
     </changeSet>
+    <changeSet id="20240415-category-table" author="umut">
+        <createTable tableName="category-table">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true"  primaryKeyName="category_id_pk" />
+            </column>
+            <column name="name" type="VARCHAR(250)">
+            </column>
+        </createTable>
+    </changeSet>
     <changeSet id="202404-15-recipe-table" author="umut">
         <createTable tableName="recipe-table">
             <column name="id" type="BIGINT">
@@ -72,15 +81,6 @@
                                  constraintName="recipe_category_fk"
                                  referencedColumnNames="id"
                                  referencedTableName="category-table"/>
-    </changeSet>
-    <changeSet id="20240415-category-table" author="umut">
-        <createTable tableName="category-table">
-            <column name="id" type="BIGINT">
-                <constraints primaryKey="true"  primaryKeyName="category_id_pk" />
-            </column>
-            <column name="name" type="VARCHAR(250)">
-            </column>
-        </createTable>
     </changeSet>
     <changeSet id="20240413-role-insert" author="murat">
         <insert tableName="role-table">
