@@ -92,5 +92,15 @@
             <column name="name" value="user" />
         </insert>
     </changeSet>
+    <changeSet id="20240416-new-user-insert" author="murat">
+        <insert tableName="user-table">
+            <column name="id" value="1" />
+            <column name="email" value="abc@abc.com" />
+            <column name="username" value="admin" />
+            <column name="role_id" value="1" />
+            <column name="password" value="admin" />
+            <column name="account_active" value="true" />
+        </insert>
+    </changeSet>
 
 </databaseChangeLog>
